@@ -44,7 +44,7 @@ function App() {
       const response = await axios.get(`${baseUrl}/products`)
       console.log("response: ", response);
       console.log("data: ", response.data)
-      setProducts(response.data.data);
+      setProducts(response.data.data.reverse);
       console.log("products: ", products);
     }
     catch (error) {
@@ -146,7 +146,7 @@ function App() {
       console.log("values: ", values);
       setClickEdit(!clickEdit);
       setUpdatedOpen(true);
-      axios.put(`${baseUrl}/product/${currentProduct.id}`, {
+      axios.put(`${baseUrl}/product/${currentProduct._id}`, {
 
         name: editFormik.values.name,
         price: editFormik.values.price,
