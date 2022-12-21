@@ -68,9 +68,9 @@ function App() {
     setFailUpdatedOpen(false);
   }
 
-  let deleteProduct = async (id) => {
+  let deleteProduct = async (_id) => {
     try {
-      const response = await axios.delete(`${baseUrl}/product/${id}`)
+      const response = await axios.delete(`${baseUrl}/product/${_id}`)
       console.log("response: ", response.data);
       setLoadProducts(!loadProducts);
       setDeleteOpen(true);
