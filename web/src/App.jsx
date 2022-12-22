@@ -45,7 +45,7 @@ function App() {
       const response = await axios.get(`${baseUrl}/products`)
       console.log("response: ", response);
       console.log("data: ", response.data)
-      setProducts(response.data.data);
+      setProducts(response.data.data.reverse);
       console.log("products: ", products);
     }
     catch (error) {
@@ -69,9 +69,9 @@ function App() {
     setFailUpdatedOpen(false);
   }
 
-  let deleteProduct = async (id) => {
+  let deleteProduct = async (_id) => {
     try {
-      const response = await axios.delete(`${baseUrl}/product/${id}`)
+      const response = await axios.delete(`${baseUrl}/product/${_id}`)
       console.log("response: ", response.data);
       setLoadProducts(!loadProducts);
       setDeleteOpen(true);
