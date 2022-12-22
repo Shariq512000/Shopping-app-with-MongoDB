@@ -16,18 +16,7 @@ if (window.location.href.split(":")[0] === "http") {
   baseUrl = "http://localhost:3001";
 }
 
-const gettingProduct = async (value) => {
-  try {
-    const response = await axios.get(`${baseUrl}/product/${value}`)
-    console.log("response by id: ", response);
-    console.log("data: ", response.data)
-    setFindProduct(response.data.data);
-    console.log("products by id: ", findProduct);
-  }
-  catch (error) {
-    console.log("error in getting all Products: ", error);
-  }
-}
+
 
 
 const Search = styled('div')(({ theme }) => ({

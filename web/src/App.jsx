@@ -16,8 +16,9 @@ import EditIcon from '@mui/icons-material/Edit';
 // import { AiTwotoneEdit } from 'react-icons/ai';
 import { GrUpdate } from 'react-icons/gr';
 import SearchAppBar from "./header";
+import Grid from '@mui/material/Grid';
 import "./App.css";
-import SearchAppBar from './header'
+// import SearchAppBar from './header'
 
 
 let baseUrl = "";
@@ -146,7 +147,7 @@ function App() {
       console.log("values: ", values);
       setClickEdit(!clickEdit);
       setUpdatedOpen(true);
-      axios.put(`${baseUrl}/product/${currentProduct.id}`, {
+      axios.put(`${baseUrl}/product/${currentProduct._id}`, {
 
         name: editFormik.values.name,
         price: editFormik.values.price,
@@ -281,13 +282,13 @@ function App() {
       <br />
       <br />
 
-      <div>
+      <div style={{alignSelf:"center"}}>
         {products?.map((eachProduct, i) => (
           <div key={i} className="card">
-            <p id="num">{eachProduct?._id}</p>
-            <h2 id="nam">{eachProduct?.name}</h2>
-            <h3 id="pri">{eachProduct?.price}</h3>
-            <p id="des">{eachProduct?.description}</p>
+          <p><b>Id:  </b>{eachProduct?._id}</p>
+          <p><b>Product Name: </b>{eachProduct?.name}</p>
+          <p><b>Price: </b>{eachProduct?.price}</p>
+          <p><b>Description: </b>{eachProduct?.description}</p>
             <IconButton aria-label="delete" size="large" color="red" style={{ color: "red" }} onClick={() => {
               deleteProduct(eachProduct?._id)
             }} >
